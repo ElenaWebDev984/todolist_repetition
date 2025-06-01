@@ -1,9 +1,10 @@
+import {TodolistTitle} from "./TodolistTitle.tsx";
 
 
 export const TodolistItem = () => {
     return (
         <div>
-            <h3>What to learn</h3>
+            <TodolistTitle title='What to learn'/>
             <div>
                 <input type="text"/>
                 <button>+</button>
