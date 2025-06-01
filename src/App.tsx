@@ -1,10 +1,13 @@
 import {TodolistItem} from "./TodolistItem.tsx";
 
 
-const App = () => {
+export const App = () => {
     return (
-       <TodolistItem/>
+        <div className="App">
+            <TodolistItem/>
+            <TodolistItem/>
+            <TodolistItem/>
+        </div>
     );
 };
 
-export default App;
