@@ -1,32 +1,21 @@
 import {TodolistTitle} from "./TodolistTitle.tsx";
 import {AddTaskForm} from "./AddTaskForm.tsx";
 import {Button} from "./Button.tsx";
+import {type Tasks, TasksList} from "./TasksList.tsx";
 
 type TodolistItemTypes =  {
     title: string
+    tasks: Tasks[]
 }
 
 
-export const TodolistItem = ({title}: TodolistItemTypes) => {
+export const TodolistItem = ({title, tasks}: TodolistItemTypes) => {
     return (
-        <div>
+        <div className='container'>
             <TodolistTitle title={title}/>
             <AddTaskForm title='+'/>
-            <ul>
-                <li>
-                    <input type="checkbox" checked={true}/>
-                    <span>HTML&CSS</span>
-                </li>
-                <li>
-                    <input type="checkbox" checked={true}/>
-                    <span>JS</span>
-                </li>
-                <li>
-                    <input type="checkbox" checked={false}/>
-                    <span>React</span>
-                </li>
-            </ul>
-            <div>
+            <TasksList tasks={tasks} />
+            <div className='btn-wrapper'>
                 <Button title='All'/>
                 <Button title='Active'/>
                 <Button title='completed'/>
