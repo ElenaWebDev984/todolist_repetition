@@ -7,18 +7,15 @@ export const App = () => {
         { id: 1, title: 'HTML&CSS', isDone: true },
         { id: 2, title: 'JS', isDone: true },
         { id: 3, title: 'ReactJS', isDone: false },
+        { id: 4, title: 'Redux', isDone: false },
+        { id: 5, title: 'Typescript', isDone: false },
+        { id: 6, title: 'RTK query', isDone: false },
     ]
 
-    const tasks2: Tasks[] = [
-        { id: 1, title: 'Milk', isDone: true },
-        { id: 2, title: 'Orange', isDone: false },
-        { id: 3, title: 'Apple', isDone: false },
-    ]
 
     return (
         <div className="App">
             <TodolistItem title='What to learn' tasks={tasks1}/>
-            <TodolistItem title='What to buy' tasks={tasks2}/>
         </div>
     );
 };
