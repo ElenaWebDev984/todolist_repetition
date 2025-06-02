@@ -23,7 +23,15 @@ body {
   gap: 50px;
 }
 
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 li {
   list-style: none;
+  display: flex;
+  gap: 10px;
 }
 
