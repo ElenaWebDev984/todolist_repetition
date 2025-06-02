@@ -9,17 +9,22 @@ export type Tasks = {
 }
 
 export const TasksList = ({tasks}: TasksListTypes) => {
-    return (
-        <ul>
-            {tasks.map(task => {
-                return (
-                    <li key={task.id}>
-                        <input type="checkbox" checked={task.isDone} />
-                        <span>{task.title}</span>
-                    </li>
-                )
-            })}
-        </ul>
-    );
+   return (
+       tasks.length === 0 ?(
+           <p>No task</p>
+           ) : (
+               <ul>
+                   {tasks.map(task => {
+                       return (
+                           <li key={task.id}>
+                               <input type="checkbox" checked={task.isDone} />
+                               <span>{task.title}</span>
+                           </li>
+                       )
+                   })}
+               </ul>
+           )
+
+   )
 };
 
