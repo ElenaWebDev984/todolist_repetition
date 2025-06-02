@@ -1,5 +1,9 @@
+import {Button} from "./Button.tsx";
+
 type TasksListTypes = {
     tasks: Tasks[]
+    onClick?: () => void
+    deleteTask: (id: number) => void
 }
 
 export type Tasks = {
@@ -8,7 +12,7 @@ export type Tasks = {
     isDone: boolean
 }
 
-export const TasksList = ({tasks}: TasksListTypes) => {
+export const TasksList = ({tasks, deleteTask}: TasksListTypes) => {
    return (
        tasks.length === 0 ?(
            <p>No task</p>
@@ -19,6 +23,7 @@ export const TasksList = ({tasks}: TasksListTypes) => {
                            <li key={task.id}>
                                <input type="checkbox" checked={task.isDone} />
                                <span>{task.title}</span>
+                               <Button title='x' onClick={() => deleteTask(task.id)}/>
                            </li>
                        )
                    })}

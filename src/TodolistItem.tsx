@@ -3,18 +3,20 @@ import {AddTaskForm} from "./AddTaskForm.tsx";
 import {Button} from "./Button.tsx";
 import {type Tasks, TasksList} from "./TasksList.tsx";
 
-type TodolistItemTypes =  {
+type TodolistItemTypes = {
     title: string
     tasks: Tasks[]
+    deleteTask: (id: number) => void
 }
 
 
-export const TodolistItem = ({title, tasks}: TodolistItemTypes) => {
+export const TodolistItem = ({title, tasks, deleteTask}: TodolistItemTypes) => {
     return (
         <div className='container'>
             <TodolistTitle title={title}/>
             <AddTaskForm title='+'/>
-            <TasksList tasks={tasks} />
+            <TasksList tasks={tasks}
+                       deleteTask={deleteTask}/>
             <div className='btn-wrapper'>
                 <Button title='All'/>
                 <Button title='Active'/>
