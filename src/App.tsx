@@ -3,7 +3,7 @@ import type {Tasks} from "./TasksList.tsx";
 
 
 export const App = () => {
-    const tasks: Tasks[] = [
+    let tasks: Tasks[] = [
         {id: 1, title: 'HTML&CSS', isDone: true},
         {id: 2, title: 'JS', isDone: true},
         {id: 3, title: 'ReactJS', isDone: false},
@@ -13,7 +13,10 @@ export const App = () => {
     ]
 
     const deleteTask = (taskId: number) => {
-       alert(taskId)
+       tasks= tasks.filter(task => {
+           return task.id !== taskId;
+       });
+        console.log(tasks);
     }
 
 
