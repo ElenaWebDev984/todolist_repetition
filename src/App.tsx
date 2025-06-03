@@ -14,10 +14,10 @@ export const App = () => {
     ]);
 
     const deleteTask = (taskId: number) => {
-       tasks= tasks.filter(task => {
+       const filteredTasks = tasks.filter(task => {
            return task.id !== taskId;
        });
-        console.log(tasks);
+       setTasks(filteredTasks)
     }
 
 
