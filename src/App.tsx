@@ -2,9 +2,11 @@ import {TodolistItem} from "./TodolistItem.tsx";
 import type {Tasks} from "./TasksList.tsx";
 import {useState} from "react";
 
+export type FilterValues = 'all' | 'active' | 'completed'
+
 
 export const App = () => {
-    const [filter, setFilter] = useState<string>('active');
+    const [filter, setFilter] = useState<FilterValues>('all')
 
     const [tasks, setTasks] = useState<Tasks[]>([
         {id: 1, title: 'HTML&CSS', isDone: true},
@@ -17,17 +19,30 @@ export const App = () => {
 
     const deleteTask = (taskId: number) => {
         const filteredTasks = tasks.filter(task => {
-            return task.id !== taskId;
+            return task.id !== taskId
         })
-        setTasks(filteredTasks);
+        setTasks(filteredTasks)
+    }
+
+    const changeFilter = (filterValues: FilterValues) => {
+        setFilter(filterValues)
+    }
+
+    let filteredTasks = tasks
+    if (filter === 'active') {
+        filteredTasks = tasks.filter(task => !task.isDone)
+    }
+    if (filter === 'completed') {
+        filteredTasks = tasks.filter(task => task.isDone)
     }
 
 
     return (
         <div className="App">
             <TodolistItem title='What to learn'
-                          tasks={tasks}
-                          deleteTask={deleteTask}/>
+                          tasks={filteredTasks}
+                          deleteTask={deleteTask}
+                          changeFilter={changeFilter}/>
         </div>
     );
 };
