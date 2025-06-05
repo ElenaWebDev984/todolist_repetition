@@ -2,7 +2,6 @@ import {Button} from "./Button.tsx";
 
 type TasksListTypes = {
     tasks: Tasks[]
-    onClick?: () => void
     deleteTask: (id: number) => void
 }
 
