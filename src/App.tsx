@@ -4,6 +4,8 @@ import {useState} from "react";
 
 
 export const App = () => {
+    const [filter, setFilter] = useState<string>('active');
+
     const [tasks, setTasks] = useState<Tasks[]>([
         {id: 1, title: 'HTML&CSS', isDone: true},
         {id: 2, title: 'JS', isDone: true},
@@ -14,10 +16,10 @@ export const App = () => {
     ]);
 
     const deleteTask = (taskId: number) => {
-       const filteredTasks = tasks.filter(task => {
-           return task.id !== taskId;
-       });
-       setTasks(filteredTasks)
+        const filteredTasks = tasks.filter(task => {
+            return task.id !== taskId;
+        })
+        setTasks(filteredTasks);
     }
 
 
